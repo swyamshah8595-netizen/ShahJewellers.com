@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHAH JEWELLARS - Traditional Gold & Silver Jewellery</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Rate Ticker */
+        .rate-ticker {
+            background: linear-gradient(90deg, #ffd700 0%, #d4af37 100%);
+            color: #4b2e05;
+            padding: 12px 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .rate-ticker span {
+            margin: 0 15px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #fff3b0 0%, #f9e076 100%);
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 3px solid #d4af37;
+        }
+
+        .logo {
+            font-family: 'Georgia', serif;
+            font-size: 4em;
+            background: linear-gradient(45deg, #b8860b, #d4af37, #ffd700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-style: italic;
+            font-size: 1.4em;
+            color: #8b6d1f;
+            margin-bottom: 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: #d4af37;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: #b8860b;
+            transform: translateY(-2px);
+        }
+
+        /* Featured Items */
+        .featured-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #b8860b;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #d4af37;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .featured-item {
+            background: #f9f4d7;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .featured-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 200px;
+            background: #d4af37;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .featured-item:hover .featured-image img {
+            transform: scale(1.1);
+        }
+
+        .featured-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .featured-name {
+            font-size: 1.3em;
+            color: #b8860b;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .featured-price {
+            font-size: 1.2em;
+            color: #4b2e05;
+            font-weight: bold;
+        }
+
+        /* Jewellery Sections */
+        .jewellery-section {
+            padding: 60px 0;
+            background: #fff8dc;
+        }
+
+        .jewellery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .jewellery-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .jewellery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .jewellery-image {
+            width: 100%;
+            height: 250px;
+            background: #d4af37;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .jewellery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .jewellery-item:hover .jewellery-image img {
+            transform: scale(1.1);
+        }
+
+        .jewellery-content {
+            padding: 20px;
+        }
+
+        .jewellery-name {
+            font-size: 1.4em;
+            color: #b8860b;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .jewellery-details {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        .jewellery-price {
+            font-size: 1.3em;
+            color: #4b2e05;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart {
+            background: #d4af37;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .add-to-cart:hover {
+            background: #b8860b;
+            transform: translateY(-2px);
+        }
+
+        /* About Us */
+        .about-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .owner-name {
+            font-size: 1.8em;
+            color: #b8860b;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .about-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        /* Contact Us */
+        .contact-section {
+            padding: 60px 0;
+            background: #fff8dc;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: #b8860b;
+            margin-bottom: 5px;
+        }
+
+        .contact-value {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Call Back Button */
+        .callback-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .callback-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .modal-title {
+            color: #b8860b;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
+        .submit-btn {
+            background: #d4af37;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #b8860b;
+        }
+
+        /* Cart */
+        .cart-btn {
+            position: fixed;
+            top: 80px;
+            right: 30px;
+            background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .cart-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .cart-panel {
+            position: fixed;
+            top: 130px;
+            right: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            width: 350px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-name {
+            flex: 1;
+        }
+
+        .cart-item-price {
+            font-weight: 600;
+            color: #b8860b;
+        }
+
+        .remove-item {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .cart-total {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4b2e05;
+            text-align: right;
+        }
+
+        /* Footer */
+        footer {
+            background: #4b2e05;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            font-family: 'Georgia', serif;
+            font-size: 2em;
+            color: #d4af37;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-link {
+            color: #d4af37;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5em;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-grid,
+            .jewellery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-container {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .cart-panel {
+                width: 90%;
+                right: 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Rate Ticker -->
+    <div class="rate-ticker">
+        <span>Gold (24K): ₹10,278.30/g</span>
+        <span>Silver (92.5): ₹143/g</span>
+        <span>Last Updated: Today</span>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1 class="logo">SHAH JEWELLARS</h1>
+            <p class="tagline">Tradition in Every Shine</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#featured" class="nav-link">Featured</a>
+                <a href="#gold" class="nav-link">Gold</a>
+                <a href="#silver" class="nav-link">Silver</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Featured Items -->
+    <section id="featured" class="featured-section">
+        <div class="container">
+            <h2 class="section-title">Featured Collection</h2>
+            <div class="featured-grid">
+                <div class="featured-item">
+                    <div class="featured-image">
+                        <img src="https://5.imimg.com/data5/SELLER/Default/2023/3/296880189/IL/XN/UI/152673053/gold-jewellery-necklace-1000x1000.jpg"
+                            alt="Elegant gold necklace with intricate traditional Indian design featuring floral patterns and polished finish" />
+                    </div>
+                    <div class="featured-content">
+                        <h3 class="featured-name">Gold Necklace</h3>
+                        <p class="featured-price">₹1,50,000</p>
+                    </div>
+                </div>
+                <div class="featured-item">
+                    <div class="featured-image">
+                        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTChuMEvE84FrUZrT5LHMqTgVLz4g9GSyppu2NcaBT0AIT4Ab4KaYlF3B0F3Xq7rpUwmCMzszTDsxXj7hxYIFRfKvO7tJoRBEJALZcqiqkDnc9WoWuaulpbt5J-"
+                            alt="Beautiful silver ring with traditional Indian motifs and polished sterling silver finish" />
+                    </div>
+                    <div class="featured-content">
+                        <h3 class="featured-name">Silver Ring</h3>
+                        <p class="featured-price">₹4,000</p>
+                    </div>
+                </div>
+                <div class="featured-item">
+                    <div class="featured-image">
+                        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRA7SpIjF3gw9UVILpLJIMw__TBV1j1piB1nb6AeNeFeeSs_Puh4VNiRIf13tg7gd5ZYj7b7y8WWIyARSPsTODlHxYcUg5xn8cXVkIo9437NkoG3h1T2Wf4pA"
+                            alt="Traditional gold bangles set with intricate carvings and polished yellow gold finish" />
+                    </div>
+                    <div class="featured-content">
+                        <h3 class="featured-name">Gold Bangles</h3>
+                        <p class="featured-price">₹90,000</p>
+                    </div>
+                </div>
+                <div class="featured-item">
+                    <div class="featured-image">
+                        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQjjJcuVOdWiaTttKjhY74SsF6TMB24Pf1OCS_4oqjBvx7ByXok5KIZ0SkgcLgnSO0rSc-y_JkG7PX_e9q-Xb9SXeGWKscX8Qjxsetz7wIaZqI3r0tq0n21K8Hd_5NImi_bROHYyQ&usqp=CAc"
+                            alt="Elegant gold earrings with traditional Indian jhumka design and detailed craftsmanship" />
+                    </div>
+                    <div class="featured-content">
+                        <h3 class="featured-name">Gold Earrings</h3>
+                        <p class="featured-price">₹2,00,000</p>
+                    </div>
+                </div>
+                <div class="featured-item">
+                    <div class="featured-image">
+                        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQLAbBh7x2wzNtBMyOC1e5WNz5E6fU8tE6TAipVoqSrRXgN_fPA2YkMBHNWKRq2k4WUKfyq0ptViWkHwaKyXD6ynkXpZMdj9IQh-k6vRf11OZSHI_GjYV30ew"
+                            alt="Premium gold chain with modern design and high-quality 22K gold finish" />
+                    </div>
+                    <div class="featured-content">
+                        <h3 class="featured-name">Gold Chain</h3>
+                        <p class="featured-price">₹1,20,000</p>
+                   </div>
+                </div>
+                <div class="featured-item">
+                    <div class="featured-image">
+                         <img src="https://rankajewellers.in/cdn/shop/files/SPL11709.jpg?v=1736686658"
+                              alt="Beautiful silver ring with traditional Indian motifs and polished sterling silver finish" />
+                    </div>
+                    <div class="featured-content">
+                        <h3 class="featured-name">Silver Payal</h3>
+                         <p class="featured-price">₹9,000</p>
+                     </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About SHAH JEWELLARS</h2>
+            <div class="about-content">
+                <h3 class="owner-name">Ashwani Kumar Shah</h3>
+                <p class="about-text">
+                    For generations, SHAH JEWELLARS has been synonymous with trust, quality, and tradition.
+                    As a family-owned jewellery store, we take pride in crafting exquisite pieces that celebrate
+                    India's rich cultural heritage. Each piece is meticulously crafted by skilled artisans
+                    using only the finest materials, ensuring that every customer receives jewellery that
+                    will be cherished for generations to come.
+                </p>
+                <p class="about-text">
+                    Our commitment to authenticity, fair pricing, and exceptional customer service has made us
+                    a trusted name in the jewellery industry. We believe that jewellery is not just an accessory
+                    but a reflection of your personality and heritage.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-label">Phone Number</div>
+                        <div class="contact-value">+91-9910596949</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Shop Address</div>
+                        <div class="contact-value">
+                            C Block 1126/b, Near Bhagat Singh Chowk<br>
+                            Sangam Vihar, New Delhi - 110080
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Business Hours</div>
+                        <div class="contact-value">
+                            Monday to Saturday: 10:00 AM - 8:00 PM<br>
+                            Sunday: 11:00 AM - 6:00 PM
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14028.123456789!2d77.234567!3d28.567890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5b123456789%3A0xabcdef1234567890!2sSangam%20Vihar%2C%20New%20Delhi!5e0!3m2!1sen!2sin!4v0000000000000"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call Back Button -->
+    <button class="callback-btn" onclick="openModal()">Request a Call Back</button>
+
+    <!-- Cart Button -->
+    <button class="cart-btn" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</button>
+
+    <!-- Cart Panel -->
+    <div class="cart-panel" id="cart-panel">
+        <h3>Your Shopping Cart</h3>
+        <div id="cart-items"></div>
+        <div class="cart-total" id="cart-total">Total: ₹0</div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="callback-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">×</span>
+            <h3 class="modal-title">Request a Call Back</h3>
+            <form id="callback-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <button type="submit" class="submit-btn">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">SHAH JEWELLARS</div>
+                <div class="footer-links">
+                    <a href="#featured" class="footer-link">Featured</a>
+                    <a href="#gold" class="footer-link">Gold</a>
+                    <a href="#silver" class="footer-link">Silver</a>
+                    <a href="#about" class="footer-link">About</a>
+                    <a href="#contact" class="footer-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Current rates (mock data - replace with API)
+        const goldRatePerGram = 6000; // ₹ per gram for 24K gold
+        const silverRatePerGram = 80;  // ₹ per gram for 92.5 silver
+
+        // Carat factors
+        const caratFactor = {
+            "24K": 1,
+            "22K": 22 / 24,
+            "18K": 18 / 24
+        };
+
+        // Gold items data
+        const goldItems = [
+            { id: 'gold1', name: "Gold Bracelet", carat: "22K", weight: 18, image: "https://placehold.co/400x300", alt: "Traditional gold bracelet with intricate Indian design and polished finish" },
+            { id: 'gold2', name: "Gold Chain", carat: "22K", weight: 25, image: "https://placehold.co/400x300", alt: "Premium gold chain with modern design and high-quality finish" },
+            { id: 'gold3', name: "Gold Bangles", carat: "22K", weight: 30, image: "https://placehold.co/400x300", alt: "Set of traditional gold bangles with intricate carvings and polished surface" },
+            { id: 'gold4', name: "Gold Earrings", carat: "22K", weight: 12, image: "https://placehold.co/400x300", alt: "Elegant gold earrings with traditional Indian jhumka design and detailed craftsmanship" },
+            { id: 'gold5', name: "Gold Necklace", carat: "22K", weight: 35, image: "https://placehold.co/400x300", alt: "Exquisite gold necklace with traditional Indian motifs and premium craftsmanship" }
+        ];
+
+        // Silver items data
+        const silverItems = [
+            { id: 'silver1', name: "Silver Bracelet", purity: 92.5, weight: 25, image: "https://placehold.co/400x300", alt: "Beautiful silver bracelet with traditional Indian design and polished finish" },
+            { id: 'silver2', name: "Silver Chain", purity: 92.5, weight: 40, image: "https://placehold.co/400x300", alt: "Elegant silver chain with modern design and sterling silver quality" },
+            { id: 'silver3', name: "Silver Bangles", purity: 92.5, weight: 35, image: "https://placehold.co/400x300", alt: "Set of traditional silver bangles with intricate designs and polished surface" },
+            { id: 'silver4', name: "Silver Earrings", purity: 92.5, weight: 15, image: "https://placehold.co/400x300", alt: "Delicate silver earrings with traditional Indian design and fine craftsmanship" },
+            { id: 'silver5', name: "Silver Necklace", purity: 92.5, weight: 50, image: "https://placehold.co/400x300", alt: "Beautiful silver necklace with traditional Indian motifs and excellent finish" }
+        ];
+
+        // Shopping cart
+        let cart = [];
+        let cartCount = 0;
+
+        // Calculate gold price
+        function calculateGoldPrice(weight, carat) {
+            const factor = caratFactor[carat] || 1;
+            return weight * goldRatePerGram * factor;
+        }
+
+        // Calculate silver price
+        function calculateSilverPrice(weight, purity) {
+            const factor = purity / 100;
+            return weight * silverRatePerGram * factor;
+        }
+
+        // Format price with Indian numbering system
+        function formatPrice(price) {
+            return '₹' + price.toLocaleString('en-IN');
+        }
+
+        // Render gold items
+        function renderGoldItems() {
+            const container = document.getElementById('gold-items');
+            container.innerHTML = '';
+
+            goldItems.forEach(item => {
+                const price = calculateGoldPrice(item.weight, item.carat);
+                const div = document.createElement('div');
+                div.className = 'jewellery-item';
+                div.innerHTML = `
+                    <div class="jewellery-image">
+                        <img src="${item.image}" alt="${item.alt}" />
+                    </div>
+                    <div class="jewellery-content">
+                        <h3 class="jewellery-name">${item.name}</h3>
+                        <p class="jewellery-details">${item.carat} • ${item.weight}g</p>
+                        <p class="jewellery-price">${formatPrice(price)}</p>
+                        <button class="add-to-cart" onclick="addToCart('${item.id}', '${item.name}', ${price}, 'gold')">
+                            Add to Cart
+                        </button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // Render silver items
+        function renderSilverItems() {
+            const container = document.getElementById('silver-items');
+            container.innerHTML = '';
+
+            silverItems.forEach(item => {
+                const price = calculateSilverPrice(item.weight, item.purity);
+                const div = document.createElement('div');
+                div.className = 'jewellery-item';
+                div.innerHTML = `
+                    <div class="jewellery-image">
+                        <img src="${item.image}" alt="${item.alt}" />
+                    </div>
+                    <div class="jewellery-content">
+                        <h3 class="jewellery-name">${item.name}</h3>
+                        <p class="jewellery-details">${item.purity} Silver • ${item.weight}g</p>
+                        <p class="jewellery-price">${formatPrice(price)}</p>
+                        <button class="add-to-cart" onclick="addToCart('${item.id}', '${item.name}', ${price}, 'silver')">
+                            Add to Cart
+                        </button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // Add item to cart
+        function addToCart(id, name, price, type) {
+            cart.push({ id, name, price, type });
+            cartCount++;
+            updateCartCount();
+            showNotification(`${name} added to cart!`);
+        }
+
+        // Update cart count
+        function updateCartCount() {
+            document.getElementById('cart-count').textContent = cartCount;
+        }
+
+        // Toggle cart panel
+        function toggleCart() {
+            const panel = document.getElementById('cart-panel');
+            if (panel.style.display === 'block') {
+                panel.style.display = 'none';
+            } else {
+                updateCartItems();
+                panel.style.display = 'block';
+            }
+        }
+
+        // Update cart items display
+        function updateCartItems() {
+            const container = document.getElementById('cart-items');
+            const totalElement = document.getElementById('cart-total');
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p>Your cart is empty</p>';
+                totalElement.textContent = 'Total: ₹0';
+                return;
+            }
+
+            container.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                total += item.price;
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <span class="cart-item-name">${item.name}</span>
+                    <span class="cart-item-price">${formatPrice(item.price)}</span>
+                    <button class="remove-item" onclick="removeFromCart(${index})">×</button>
+                `;
+                container.appendChild(cartItem);
+            });
+
+            totalElement.textContent = `Total: ${formatPrice(total)}`;
+        }
+
+        // Remove item from cart
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            cartCount--;
+            updateCartCount();
+            updateCartItems();
+        }
+
+        // Show notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 100px;
+                right: 30px;
+                background: #4CAF50;
+                color: white;
+                padding: 15px 25px;
+                border-radius: 5px;
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Modal functions
+        function openModal() {
+            document.getElementById('callback-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('callback-modal').style.display = 'none';
+        }
+
+        // Form submission
+        document.getElementById('callback-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+
+            showNotification(`Thank you ${name}! We'll call you at ${phone} shortly.`);
+            closeModal();
+            this.reset();
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function (e) {
+            const modal = document.getElementById('callback-modal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Initialize the page
+        function init() {
+            renderGoldItems();
+            renderSilverItems();
+            updateCartCount();
+        }
+
+        // Run initialization when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+
+</html>
